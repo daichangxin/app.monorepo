@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "lib": ["DOM", "ES5"],
+        "jsx": "react-jsx",
+        "target": "es6",
+        "module": "esnext",
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "removeComments": true
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": ["src"]
+}

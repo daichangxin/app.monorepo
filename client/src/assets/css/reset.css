@@ -1,0 +1,109 @@
+/** Custom Resets **/
+html {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+fieldset,
+label,
+legend,
+li,
+p,
+span,
+strong,
+ul,
+input,
+table,
+tr,
+th,
+td,
+thead,
+tbody {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
+}
+
+body,
+::placeholder,
+textarea {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+}
+button:disabled {
+    /* opacity: 0.4; */
+    /* color: currentColor; */
+}
+
+textarea:disabled {
+    background-color: transparent ;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #111;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    max-width: 100%;
+    border-style: none;
+}

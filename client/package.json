@@ -1,0 +1,54 @@
+{
+    "name": "client",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf dist/",
+        "test": "tsc --noEmit",
+        "dev": "NODE_ENV=development webpack serve --config config/webpack.dev.js",
+        "analyzer": "webpack --config config/webpack.analyzer.js --progress",
+        "build:test": "npm run clean && NODE_ENV=production webpack --config config/webpack.test.js",
+        "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+        "lint": "eslint src/"
+    },
+    "dependencies": {
+        "@chakra-ui/react": "^2.5.5",
+        "@emotion/react": "^11",
+        "@emotion/styled": "^11",
+        "framer-motion": "^6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.10.0",
+        "react-utilities": "workspace:^"
+    },
+    "browserslist": [
+        "> 2%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "devDependencies": {
+        "@types/node": "^18.15.11",
+        "@types/react": "^18.0.33",
+        "@types/react-dom": "^18.0.11",
+        "autoprefixer": "^10.4.14",
+        "babel-loader": "^9.1.2",
+        "babel-preset-react-app": "^10.0.1",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.7.3",
+        "dotenv-webpack": "^8.0.1",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.7.5",
+        "postcss": "^8.4.21",
+        "postcss-loader": "^7.2.4",
+        "rimraf": "^4.4.1",
+        "tailwindcss": "^3.3.1",
+        "terser-webpack-plugin": "^5.3.7",
+        "typescript": "^5.0.3",
+        "webpack": "^5.78.0",
+        "webpack-bundle-analyzer": "^4.8.0",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.13.2"
+    }
+}

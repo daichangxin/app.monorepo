@@ -24,7 +24,7 @@ const generate = (isOptimization = false) => {
     const htmlPlugins = [];
 
     // vendor entry
-    entries['vendor'] = ['react', 'react-dom'];
+    entries['vendor'] = ['react', 'react-dom', 'react-router-dom'];
 
     // html entries
     const rawEntries = getWebpackEntries(clientRoot);
@@ -95,22 +95,6 @@ const generate = (isOptimization = false) => {
                     test: /\.css$/,
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
                     include: [resolve('src/assets/css/global.css'), resolve('node_modules')],
-                },
-                {
-                    test: /\.less$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 3,
-                                modules: {
-                                    localIdentName: '[name]_[local]-[hash:8]',
-                                },
-                            },
-                        },
-                        'less-loader',
-                    ],
                 },
                 {
                     test: /\.css$/,

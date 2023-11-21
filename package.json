@@ -16,5 +16,10 @@
     },
     "keywords": [],
     "author": "daichangxin",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "@eds-open/eslint-config-bundle": "^1.1.1",
+        "rimraf": "^4.4.1",
+        "typescript": "^5.3.2"
+    }
 }

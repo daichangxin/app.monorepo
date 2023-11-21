@@ -1,3 +1,11 @@
 module.exports = {
-    extends: ['@shm-open/eslint-config-bundle/react'],
+    extends: ['@eds-open/eslint-config-bundle/libs/react'],
+    rules: {},
+    parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+            babelrc: false,
+            configFile: false,
+        },
+    },
 };

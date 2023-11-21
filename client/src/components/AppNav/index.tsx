@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/react';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,13 +7,8 @@ export const AppNav: FC = () => {
             <div className="h-16">
                 <div className="w-full h-full px-6 flex items-center justify-between">
                     <Link to="/">AppNav</Link>
-                    <div>
-                        <Button>Hello</Button>
-                    </div>
                 </div>
             </div>
         </header>
     );
 };
-
-AppNav.displayName = 'AppNav';

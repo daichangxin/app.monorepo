@@ -2,8 +2,11 @@
 module.exports = {
     content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
     darkMode: 'class',
+    corePlugins: {
+        preflight: false,
+    },
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/line-clamp')],
 };

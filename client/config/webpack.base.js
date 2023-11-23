@@ -93,8 +93,17 @@ const generate = (isOptimization = false) => {
                 },
                 {
                     test: /\.css$/,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-                    include: [resolve('src/assets/css/global.css'), resolve('node_modules')],
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                esModule: true,
+                            },
+                        },
+                        'css-loader',
+                        'postcss-loader',
+                    ],
+                    include: /node_modules/,
                 },
                 {
                     test: /\.css$/,
@@ -102,7 +111,7 @@ const generate = (isOptimization = false) => {
                         {
                             loader: MiniCssExtractPlugin.loader,
                             options: {
-                                esModule: false,
+                                esModule: true,
                             },
                         },
                         {
@@ -117,7 +126,6 @@ const generate = (isOptimization = false) => {
                         'postcss-loader',
                     ],
                     include: [clientRoot],
-                    exclude: [resolve('src/assets/css/global.css')],
                 },
             ],
         },

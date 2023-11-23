@@ -14,18 +14,13 @@
         "lint": "eslint src/"
     },
     "dependencies": {
+        "@eds-open/eds-ui": "^0.0.12",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.19.0",
         "react-utilities": "workspace:^"
     },
-    "browserslist": [
-        "> 2%",
-        "last 2 versions",
-        "not ie <= 8"
-    ],
     "devDependencies": {
-        "@tailwindcss/line-clamp": "^0.4.4",
         "@types/node": "^20.9.3",
         "@types/react": "^18.2.38",
         "@types/react-dom": "^18.2.16",
@@ -46,5 +41,10 @@
         "webpack-bundle-analyzer": "^4.10.1",
         "webpack-cli": "^5.1.4",
         "webpack-dev-server": "^4.15.1"
-    }
+    },
+    "browserslist": [
+        "> 2%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }

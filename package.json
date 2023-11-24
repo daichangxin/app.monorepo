@@ -17,6 +17,9 @@
     "keywords": [],
     "author": "daichangxin",
     "license": "MIT",
+    "dependencies": {
+        "axios": "^1.6.2"
+    },
     "devDependencies": {
         "@eds-open/eslint-config-bundle": "^1.1.1",
         "rimraf": "^5.0.5",

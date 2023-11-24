@@ -103,7 +103,7 @@ const generate = (isOptimization = false) => {
                         'css-loader',
                         'postcss-loader',
                     ],
-                    include: /node_modules/,
+                    include: [/node_modules/, resolve('src/assets/css/tailwind.css')],
                 },
                 {
                     test: /\.css$/,
@@ -126,6 +126,7 @@ const generate = (isOptimization = false) => {
                         'postcss-loader',
                     ],
                     include: [clientRoot],
+                    exclude: [resolve('src/assets/css/tailwind.css')],
                 },
             ],
         },

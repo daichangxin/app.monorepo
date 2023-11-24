@@ -2,19 +2,11 @@ import compression from "compression";
 import cors from "cors";
 import express, { Express, Request, Response } from "express";
 import helmet from "helmet";
-import { Client, Users } from "node-appwrite";
 import { config } from "./config";
+import { apiRoute } from "./routes";
 import compressFilter from "./utils/compressFilter.util";
 
 const app: Express = express();
-
-const client = new Client();
-client
-    .setEndpoint(config.appwriteEndpoint)
-    .setProject(config.appwriteProjectId)
-    .setKey(config.appwriteApiKey);
-
-const users = new Users(client);
 
 app.use(
     cors({
@@ -30,14 +22,6 @@ app.use(helmet());
 // Compression is used to reduce the size of the response body
 app.use(compression({ filter: compressFilter }));
 
-app.get("/", (_req: Request, res: Response) => {
-    res.send("Hello World!");
-});
-
-app.get("/login", (_req: Request, res: Response) => {
-    users.list().then((userList) => {
-        res.send(userList);
-    });
-});
+app.use("/api", apiRoute);
 
 export default app;

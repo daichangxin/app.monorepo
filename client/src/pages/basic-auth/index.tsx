@@ -6,6 +6,7 @@ import { UserView } from './components/UserView';
 import { User } from './services/user';
 
 export const Main: FC = () => {
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User>();
 
     const fetchUser = useCallback(() => {
@@ -16,6 +17,9 @@ export const Main: FC = () => {
             })
             .catch(() => {
                 //
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, []);
 
@@ -24,6 +28,8 @@ export const Main: FC = () => {
     }, [fetchUser]);
 
     useEffect(fetchUser, [fetchUser]);
+
+    if (loading) return <div>Loading...</div>;
 
     return (
         <>

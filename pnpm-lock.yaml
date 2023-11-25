@@ -25,8 +25,8 @@ importers:
   client:
     dependencies:
       '@eds-open/eds-ui':
-        specifier: ^0.0.12
-        version: 0.0.12(@types/react-dom@18.2.16)(@types/react@18.2.38)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.5)
+        specifier: ^0.0.13
+        version: 0.0.13(@types/react-dom@18.2.16)(@types/react@18.2.38)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.5)
       '@hookform/resolvers':
         specifier: ^3.3.2
         version: 3.3.2(react-hook-form@7.48.2)
@@ -1619,8 +1619,8 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /@eds-open/eds-ui@0.0.12(@types/react-dom@18.2.16)(@types/react@18.2.38)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.5):
-    resolution: {integrity: sha512-JtnIoj2/Hopp2Eus6HQG6opvPiDVSUm+0Wtl5f2m6V7UE0vdvsGOPE7n2eu7So/s5r5q6GWERhwaIHTZ7SFeuw==}
+  /@eds-open/eds-ui@0.0.13(@types/react-dom@18.2.16)(@types/react@18.2.38)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.5):
+    resolution: {integrity: sha512-NptDGSNeOCYe98e3Dj7j/aPYIwuAm22XaIKKZEccYl/qnmqTsumVxn1QOgNjmJCRgiZtF7JdCOPPkoVVAtL2eQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

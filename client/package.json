@@ -14,7 +14,7 @@
         "lint": "eslint src/"
     },
     "dependencies": {
-        "@eds-open/eds-ui": "^0.0.12",
+        "@eds-open/eds-ui": "^0.0.13",
         "@hookform/resolvers": "^3.3.2",
         "appwrite": "^13.0.1",
         "react": "^18.2.0",

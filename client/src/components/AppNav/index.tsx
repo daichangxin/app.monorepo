@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const AppNav: FC = () => {
     return (
-        <header className="sticky top-0 left-0 right-0 bg-white w-full shadow">
+        <header className="sticky left-0 right-0 top-0 w-full bg-white shadow">
             <div className="h-16">
-                <div className="w-full h-full px-6 flex items-center justify-between">
+                <div className="flex h-full w-full items-center justify-between px-6">
                     <Link to="/">AppNav</Link>
                 </div>
             </div>

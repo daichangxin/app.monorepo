@@ -39,5 +39,6 @@ app.use("/api", apiRoute);
 app.use("/health", (req: Request, res: Response) => {
     res.status(200).send("ok");
 });
+app.use("*", express.static("../../client/dist"));
 
 export default app;

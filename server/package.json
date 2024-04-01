@@ -10,8 +10,7 @@
         "dev": "cross-env ENV_FILE=.env nodemon src/index.ts",
         "build:test": "npm run clean && tsc --outDir dist && cp .env dist/.env",
         "build:prod": "npm run clean && tsc --outDir dist && cp .env.prod dist/.env.prod",
-        "test": "echo \"Error: no test specified at server\"",
-        "start": "node dist/index.js"
+        "test": "echo \"Error: no test specified at server\""
     },
     "dependencies": {
         "compression": "^1.7.4",

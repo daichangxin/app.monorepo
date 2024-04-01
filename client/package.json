@@ -10,7 +10,7 @@
         "dev": "NODE_ENV=development webpack serve --config config/webpack.dev.js",
         "analyzer": "webpack --config config/webpack.analyzer.js --progress",
         "build:test": "npm run clean && NODE_ENV=production webpack --config config/webpack.test.js",
-        "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+        "build:prod": "npm run clean && NODE_ENV=production webpack --config config/webpack.prod.js",
         "lint": "eslint src/"
     },
     "dependencies": {
@@ -31,7 +31,6 @@
         "autoprefixer": "^10.4.16",
         "babel-loader": "^9.1.3",
         "babel-preset-react-app": "^10.0.1",
-        "cross-env": "^7.0.3",
         "css-loader": "^6.8.1",
         "dotenv-webpack": "^8.0.1",
         "html-webpack-plugin": "^5.5.3",

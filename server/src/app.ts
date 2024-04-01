@@ -5,6 +5,7 @@ import helmet from "helmet";
 import { config } from "./config";
 import { apiRoute } from "./routes";
 import compressFilter from "./utils/compressFilter.util";
+import logger from "./middleware/logger";
 
 const app: Express = express();
 
@@ -22,6 +23,21 @@ app.use(helmet());
 // Compression is used to reduce the size of the response body
 app.use(compression({ filter: compressFilter }));
 
+// catch errors
+app.use((err, req, res, next) => {
+    if (err) {
+        err.withErrorId(Math.random().toString(36).slice(2));
+        logger.error(err);
+        res.status(err.getStatusCode() ?? 500);
+        return res.json({
+            err: err.toJSONSafe(),
+        });
+    }
+    next();
+});
 app.use("/api", apiRoute);
+app.use("/health", (req: Request, res: Response) => {
+    res.status(200).send("ok");
+});
 
 export default app;

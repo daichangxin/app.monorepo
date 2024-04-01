@@ -6,9 +6,7 @@
     "scripts": {
         "dev": "pnpm -r --parallel dev",
         "build:test": "pnpm --stream -r run build:test",
-        "build:prod": "pnpm --stream -r run build:prod",
-        "clean": "pnpm -r run clean",
-        "test": "echo \"hello test\""
+        "build:prod": "pnpm --stream -r run build:prod"
     },
     "engines": {
         "node": ">=16",

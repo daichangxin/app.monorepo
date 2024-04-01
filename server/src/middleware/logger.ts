@@ -1,33 +1,45 @@
+import winston, { createLogger, transports } from "winston";
+import "winston-daily-rotate-file";
 import { config } from "../config";
-import { createLogger, format, transports } from "winston";
+const { combine, timestamp, json, simple } = winston.format;
 
 const logger = createLogger({
     level: config.node_env === "production" ? "info" : "debug",
-    format: format.json(),
-    defaultMeta: { service: "app-service" },
+    format: combine(timestamp(), json()),
     transports: [
-        //
-        // - Write all logs with importance level of `error` or less to `error.log`
-        // - Write all logs with importance level of `info` or less to `status.log`
-        //
-        new transports.File({ filename: "logs/error.log", level: "error" }),
-        new transports.File({ filename: "logs/status.log" }),
+        new winston.transports.DailyRotateFile({
+            level: "info",
+            filename: "./logs/status-%DATE%.log",
+            datePattern: "YYYY-MM-DD",
+            zippedArchive: true,
+            maxSize: "20m",
+            maxFiles: "14d",
+        }),
+        new winston.transports.DailyRotateFile({
+            level: "error",
+            filename: "./logs/error-%DATE%.log",
+            datePattern: "YYYY-MM-DD",
+            zippedArchive: true,
+            maxSize: "20m",
+            maxFiles: "14d",
+        }),
     ],
     exceptionHandlers: [
-        new transports.File({ filename: "logs/exceptions.log" }),
+        new winston.transports.DailyRotateFile({
+            level: "error",
+            filename: "./logs/exceptions-%DATE%.log",
+            datePattern: "YYYY-MM-DD",
+            zippedArchive: true,
+            maxSize: "20m",
+            maxFiles: "14d",
+        }),
     ],
 });
 
-//
-// If we're not in production then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-//
-if (config.node_env !== "production") {
-    logger.add(
-        new transports.Console({
-            format: format.simple(),
-        }),
-    );
-}
+logger.add(
+    new transports.Console({
+        format: combine(timestamp(), json()),
+    }),
+);
 
 export default logger;

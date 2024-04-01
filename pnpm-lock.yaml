@@ -70,9 +70,6 @@ importers:
       babel-preset-react-app:
         specifier: ^10.0.1
         version: 10.0.1
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
       css-loader:
         specifier: ^6.8.1
         version: 6.8.1(webpack@5.89.0)
@@ -90,7 +87,7 @@ importers:
         version: 8.4.31
       postcss-loader:
         specifier: ^7.3.3
-        version: 7.3.3(postcss@8.4.31)(typescript@5.3.2)(webpack@5.89.0)
+        version: 7.3.3(postcss@8.4.31)(webpack@5.89.0)
       prettier-plugin-tailwindcss:
         specifier: ^0.5.7
         version: 0.5.7(prettier@3.1.0)
@@ -141,6 +138,9 @@ importers:
       winston:
         specifier: ^3.11.0
         version: 3.11.0
+      winston-daily-rotate-file:
+        specifier: ^5.0.0
+        version: 5.0.0(winston@3.11.0)
     devDependencies:
       '@types/compression':
         specifier: ^1.7.5
@@ -4581,7 +4581,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /cosmiconfig@8.3.6(typescript@5.3.2):
+  /cosmiconfig@8.3.6:
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4594,7 +4594,6 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      typescript: 5.3.2
     dev: true
 
   /create-require@1.1.1:
@@ -5524,6 +5523,12 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flat-cache: 3.2.0
+
+  /file-stream-rotator@0.6.1:
+    resolution: {integrity: sha512-u+dBid4PvZw17PmDeRcNOtCP9CCK/9lRN2w+r1xIS7yOL9JFrIBKTvrYsxT4P0pGtThYTn++QS5ChHaUov3+zQ==}
+    dependencies:
+      moment: 2.30.1
+    dev: false
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -6654,6 +6659,10 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dev: true
 
+  /moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+    dev: false
+
   /mrmime@1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
     engines: {node: '>=10'}
@@ -7179,14 +7188,14 @@ packages:
       postcss: 8.4.31
       yaml: 2.3.4
 
-  /postcss-loader@7.3.3(postcss@8.4.31)(typescript@5.3.2)(webpack@5.89.0):
+  /postcss-loader@7.3.3(postcss@8.4.31)(webpack@5.89.0):
     resolution: {integrity: sha512-YgO/yhtevGO/vJePCQmTxiaEwER94LABZN0ZMT4A0vsak9TpO+RvKRs7EmJ8peIlB9xfXCsS7M8LjqncsUZ5HA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       postcss: ^7.0.0 || ^8.0.1
       webpack: ^5.0.0
     dependencies:
-      cosmiconfig: 8.3.6(typescript@5.3.2)
+      cosmiconfig: 8.3.6
       jiti: 1.21.0
       postcss: 8.4.31
       semver: 7.5.4
@@ -8853,8 +8862,30 @@ packages:
     resolution: {integrity: sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ==}
     dev: true
 
+  /winston-daily-rotate-file@5.0.0(winston@3.11.0):
+    resolution: {integrity: sha512-JDjiXXkM5qvwY06733vf09I2wnMXpZEhxEVOSPenZMii+g7pcDcTBt2MRugnoi8BwVSuCT2jfRXBUy+n1Zz/Yw==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      winston: ^3
+    dependencies:
+      file-stream-rotator: 0.6.1
+      object-hash: 3.0.0
+      triple-beam: 1.4.1
+      winston: 3.11.0
+      winston-transport: 4.7.0
+    dev: false
+
   /winston-transport@4.6.0:
     resolution: {integrity: sha512-wbBA9PbPAHxKiygo7ub7BYRiKxms0tpfU2ljtWzb3SjRjv5yl6Ozuy/TkXf00HTAt+Uylo3gSkNwzc4ME0wiIg==}
+    engines: {node: '>= 12.0.0'}
+    dependencies:
+      logform: 2.6.0
+      readable-stream: 3.6.2
+      triple-beam: 1.4.1
+    dev: false
+
+  /winston-transport@4.7.0:
+    resolution: {integrity: sha512-ajBj65K5I7denzer2IYW6+2bNIVqLGDHqDw3Ow8Ohh+vdW+rv4MZ6eiDvHoKhfJFZ2auyN8byXieDDJ96ViONg==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       logform: 2.6.0

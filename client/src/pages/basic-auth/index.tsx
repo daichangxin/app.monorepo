@@ -1,6 +1,6 @@
 import { Toaster } from '@eds-open/eds-ui';
 import { FC, useCallback, useEffect, useState } from 'react';
-import { aw } from '../../server/aw';
+import { aw } from '../../services/appwrite';
 import { Login } from './components/Login';
 import { UserView } from './components/UserView';
 import { User } from './services/user';

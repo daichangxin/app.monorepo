@@ -1,6 +1,6 @@
 import { Button } from '@eds-open/eds-ui';
 import { FC, useCallback } from 'react';
-import { aw } from '../../../../server/aw';
+import { aw } from '../../../../services/appwrite';
 import { User } from '../../services/user';
 
 export const UserView: FC<{ user: User }> = ({ user }) => {

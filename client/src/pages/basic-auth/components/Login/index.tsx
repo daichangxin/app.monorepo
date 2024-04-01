@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FC, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { aw } from '../../../../server/aw';
+import { aw } from '../../../../services/appwrite';
 
 const FormSchema = z.object({
     email: z.string().email({

@@ -1,5 +1,5 @@
 import { FC } from 'react';
 
-export const IndexMain: FC = () => {
+export const Main: FC = () => {
     return <div>Index</div>;
 };

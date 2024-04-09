@@ -1,41 +1,20 @@
-import { Toaster } from '@eds-open/eds-ui';
-import { FC, useCallback, useEffect, useState } from 'react';
+import { Button, Toaster } from '@eds-open/eds-ui';
+import { FC } from 'react';
 import { aw } from '../../services/appwrite';
-import { Login } from './components/Login';
 import { UserView } from './components/UserView';
-import { User } from './services/user';
+import { FaGoogle } from "react-icons/fa";
+import {useAuthByGoogle} from 'appwrite-auth';
+
 
 export const Main: FC = () => {
-    const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState<User>();
-
-    const fetchUser = useCallback(() => {
-        aw.account
-            .get()
-            .then((res) => {
-                setUser(res);
-            })
-            .catch(() => {
-                //
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
-    const onLoginSuccess = useCallback(() => {
-        fetchUser();
-    }, [fetchUser]);
-
-    useEffect(fetchUser, [fetchUser]);
+    const {loading, user , login, logout} = useAuthByGoogle(aw.account);
 
     if (loading) return <div>Loading...</div>;
-
     return (
         <>
             <Toaster />
             <div className="flex min-h-screen items-center justify-center">
-                {user ? <UserView user={user} /> : <Login onLoginSuccess={onLoginSuccess} />}
+                {user ? <UserView user={user} logout={logout} /> : <Button className='w-80' onClick={login}><FaGoogle className='mr-4'/>Continue with Google</Button>}
             </div>
         </>
     );

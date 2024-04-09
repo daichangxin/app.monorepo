@@ -1,18 +1,12 @@
 import { Button } from '@eds-open/eds-ui';
+import { Models } from 'appwrite';
 import { FC, useCallback } from 'react';
-import { aw } from '../../../../services/appwrite';
-import { User } from '../../services/user';
 
-export const UserView: FC<{ user: User }> = ({ user }) => {
-    const onSignOutClick = useCallback(() => {
-        aw.account.deleteSession('current').then(() => {
-            window.location.reload();
-        });
-    }, []);
+export const UserView: FC<{ user: Models.User<any>, logout:()=>void }> = ({ user, logout }) => {
     return (
         <div className="flex w-80 flex-col">
             Hi, there {user.email} 👏🏻
-            <Button onClick={onSignOutClick}>Sign Out</Button>
+            <Button onClick={logout}>Sign Out</Button>
         </div>
     );
 };

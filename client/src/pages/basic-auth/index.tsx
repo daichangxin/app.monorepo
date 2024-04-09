@@ -1,3 +1,6 @@
+import { AiOutlineLoading } from 'react-icons/ai';
+
+import { useBoolean } from 'ahooks';
 import { FC, useEffect } from 'react';
 import { UserView } from './components/UserView';
 
@@ -6,19 +9,19 @@ import { useAuth } from '../../modules/auth/services/useAuth';
 
 export const Main: FC = () => {
     const { user, signOut, fetchUser } = useAuth();
+    const [loading, { setTrue, setFalse }] = useBoolean();
 
     useEffect(() => {
-        fetchUser();
+        setTrue();
+        fetchUser().finally(setFalse);
     }, []);
 
     return (
         <div className="flex min-h-screen items-center justify-center">
-            {user ? (
-                <UserView user={user} logout={signOut} />
+            {loading ? (
+                <AiOutlineLoading className="animate-spin" />
             ) : (
-                <div className="w-96">
-                    <Login />
-                </div>
+                <div className="w-96">{user ? <UserView user={user} logout={signOut} /> : <Login />}</div>
             )}
         </div>
     );

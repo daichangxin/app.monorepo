@@ -1,21 +1,25 @@
-import { Button, Toaster } from '@eds-open/eds-ui';
-import { FC } from 'react';
-import { aw } from '../../services/appwrite';
+import { FC, useEffect } from 'react';
 import { UserView } from './components/UserView';
-import { FaGoogle } from "react-icons/fa";
-import {useAuthByGoogle} from 'appwrite-auth';
 
+import { Login } from '../../modules/auth/components/Login';
+import { useAuth } from '../../modules/auth/services/useAuth';
 
 export const Main: FC = () => {
-    const {loading, user , login, logout} = useAuthByGoogle(aw.account);
+    const { user, signOut, fetchUser } = useAuth();
 
-    if (loading) return <div>Loading...</div>;
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
     return (
-        <>
-            <Toaster />
-            <div className="flex min-h-screen items-center justify-center">
-                {user ? <UserView user={user} logout={logout} /> : <Button className='w-80' onClick={login}><FaGoogle className='mr-4'/>Continue with Google</Button>}
-            </div>
-        </>
+        <div className="flex min-h-screen items-center justify-center">
+            {user ? (
+                <UserView user={user} logout={signOut} />
+            ) : (
+                <div className="w-96">
+                    <Login />
+                </div>
+            )}
+        </div>
     );
 };

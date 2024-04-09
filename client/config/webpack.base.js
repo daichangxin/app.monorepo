@@ -6,6 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const os = require('os');
 const clientRoot = resolve('src');
+const path = require('path');
 
 /**
  * genrate webpack config
@@ -68,6 +69,9 @@ const generate = (isOptimization = false) => {
             }),
         ],
         resolve: {
+            alias: {
+                '@': path.resolve(__dirname, '../src/'),
+            },
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
         module: {

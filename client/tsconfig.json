@@ -14,5 +14,9 @@
         "removeComments": true
     },
     "exclude": ["node_modules", "dist"],
-    "include": ["src"]
+    "include": ["src"],
+    "baseUrl": ".",
+    "paths": {
+        "@/*": ["./src/*"]
+    }
 }

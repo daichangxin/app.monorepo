@@ -17,14 +17,13 @@
         "@eds-open/eds-ui": "^0.0.14",
         "@hookform/resolvers": "^3.3.4",
         "appwrite": "^13.0.2",
-        "appwrite-auth": "workspace:^",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.51.2",
         "react-icons": "^5.0.1",
         "react-router-dom": "^6.22.3",
-        "react-utilities": "workspace:^",
-        "zod": "^3.22.4"
+        "zod": "^3.22.4",
+        "zustand": "^4.5.2"
     },
     "devDependencies": {
         "@types/node": "^20.12.2",

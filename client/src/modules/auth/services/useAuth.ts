@@ -1,8 +1,9 @@
-import { ID, Models } from 'appwrite';
+import type { Models } from 'appwrite';
+import { ID } from 'appwrite';
 import { create } from 'zustand';
 import { aw } from '../../../services/appwrite';
 
-type User = Models.User<Models.Preferences>;
+export type User = Models.User<Models.Preferences>;
 
 type State = {
     isLogin: boolean;
@@ -12,7 +13,7 @@ type State = {
     signOut: () => void;
 };
 
-export const useAuth = create<State>((set, get) => ({
+export const useAuth = create<State>((set) => ({
     isLogin: false,
     user: undefined,
     createUser: async (email, password) => {

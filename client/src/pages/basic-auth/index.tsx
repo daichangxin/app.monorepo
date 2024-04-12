@@ -1,11 +1,11 @@
-import { AiOutlineLoading } from 'react-icons/ai';
-
 import { useBoolean } from 'ahooks';
-import { FC, useEffect } from 'react';
-import { UserView } from './components/UserView';
+import type { FC } from 'react';
+import { useEffect } from 'react';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 import { Login } from '../../modules/auth/components/Login';
 import { useAuth } from '../../modules/auth/services/useAuth';
+import { UserView } from './components/UserView';
 
 export const Main: FC = () => {
     const { user, signOut, fetchUser } = useAuth();
@@ -14,7 +14,7 @@ export const Main: FC = () => {
     useEffect(() => {
         setTrue();
         fetchUser().finally(setFalse);
-    }, []);
+    }, [fetchUser, setFalse, setTrue]);
 
     return (
         <div className="flex min-h-screen items-center justify-center">

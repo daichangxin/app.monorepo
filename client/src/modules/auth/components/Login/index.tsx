@@ -1,5 +1,6 @@
-import { Button, Input } from '@eds-open/eds-ui';
-import { FC, useCallback } from 'react';
+import { Button } from '@eds-open/eds-ui';
+import type { FC } from 'react';
+import { useCallback } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { aw } from '../../../../services/appwrite';
 import { EmailForm } from '../EmailForm';

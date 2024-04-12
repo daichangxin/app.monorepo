@@ -1,10 +1,11 @@
 import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input, toast } from '@eds-open/eds-ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FC, useCallback, useRef } from 'react';
+import { ID } from 'appwrite';
+import type { FC } from 'react';
+import { useCallback, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { aw } from '../../../../services/appwrite';
-import { ID } from 'appwrite';
 import { useAuth } from '../../services/useAuth';
 
 const schema = z.object({
@@ -26,36 +27,39 @@ export const EmailForm: FC = () => {
         },
     });
 
-    const onSubmit = useCallback((data: z.infer<typeof schema>) => {
-        const { email, password } = data;
-        if (refType.current === 'register') {
-            aw.account
-                .create(ID.unique(), email, password)
-                .then(() => {
-                    toast({
-                        title: 'Welcome onboard!',
-                        description: `You are now logged in as ${email}.`,
+    const onSubmit = useCallback(
+        (data: z.infer<typeof schema>) => {
+            const { email, password } = data;
+            if (refType.current === 'register') {
+                aw.account
+                    .create(ID.unique(), email, password)
+                    .then(() => {
+                        toast({
+                            title: 'Welcome onboard!',
+                            description: `You are now logged in as ${email}.`,
+                        });
+                        aw.account.createEmailSession(email, password).then(fetchUser);
+                    })
+                    .catch((err) => {
+                        toast({
+                            title: 'Error',
+                            description: err.message || `Something went wrong.`,
+                        });
                     });
-                    aw.account.createEmailSession(email, password).then(fetchUser);
-                })
-                .catch((err) => {
-                    toast({
-                        title: 'Error',
-                        description: err.message || `Something went wrong.`,
+            } else {
+                aw.account
+                    .createEmailSession(email, password)
+                    .then(fetchUser)
+                    .catch((err) => {
+                        toast({
+                            title: 'Error',
+                            description: err.message || `Something went wrong.`,
+                        });
                     });
-                });
-        } else {
-            aw.account
-                .createEmailSession(email, password)
-                .then(fetchUser)
-                .catch((err) => {
-                    toast({
-                        title: 'Error',
-                        description: err.message || `Something went wrong.`,
-                    });
-                });
-        }
-    }, []);
+            }
+        },
+        [fetchUser]
+    );
 
     return (
         <Form {...form}>

@@ -1,6 +1,7 @@
 import compression from "compression";
 import cors from "cors";
 import express, { Express, Request, Response } from "express";
+import fs from "fs";
 import helmet from "helmet";
 import path from "path";
 import { config } from "./config";
@@ -24,10 +25,15 @@ app.use(helmet());
 // Compression is used to reduce the size of the response body
 app.use(compression({ filter: compressFilter }));
 
+// parse application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+// parse application/json
+app.use(express.json());
+
 // catch errors
 app.use((err, req, res, next) => {
     if (err) {
-        err.withErrorId(Math.random().toString(36).slice(2));
         logger.error(err);
         res.status(err.getStatusCode() ?? 500);
         return res.json({
@@ -40,6 +46,10 @@ app.use("/api", apiRoute);
 app.use("/health", (req: Request, res: Response) => {
     res.status(200).send("ok");
 });
-app.use("/", express.static(path.join(__dirname, "../../client/dist")));
+
+const clientDir = path.join(__dirname, "../../client/dist");
+if (fs.existsSync(clientDir)) {
+    app.use("/", express.static(clientDir));
+}
 
 export default app;

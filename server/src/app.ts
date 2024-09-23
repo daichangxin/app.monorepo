@@ -2,10 +2,11 @@ import compression from "compression";
 import cors from "cors";
 import express, { Express, Request, Response } from "express";
 import helmet from "helmet";
+import path from "path";
 import { config } from "./config";
+import logger from "./middleware/logger";
 import { apiRoute } from "./routes";
 import compressFilter from "./utils/compressFilter.util";
-import logger from "./middleware/logger";
 
 const app: Express = express();
 
@@ -39,6 +40,6 @@ app.use("/api", apiRoute);
 app.use("/health", (req: Request, res: Response) => {
     res.status(200).send("ok");
 });
-app.use("*", express.static("../../client/dist"));
+app.use("/", express.static(path.join(__dirname, "../../client/dist")));
 
 export default app;

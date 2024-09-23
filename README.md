@@ -10,12 +10,3 @@ Express
 
 -   serve client
 -   provider api
-
-## Appwrite
-
-Server Support
-
--   Database
--   Auth
--   Storage
--   Functions

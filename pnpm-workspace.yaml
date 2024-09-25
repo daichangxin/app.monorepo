@@ -1,4 +1,5 @@
 packages:
-    - 'packages/*'
-    - 'client'
-    - 'server'
+    - "packages/*"
+    - "client"
+    - "server"
+    - "scripts"

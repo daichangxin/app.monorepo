@@ -6,7 +6,11 @@
     "scripts": {
         "dev": "pnpm -r --parallel dev",
         "build:test": "pnpm --stream -r run build:test",
-        "build:prod": "pnpm --stream -r run build:prod"
+        "build:prod": "pnpm --stream -r run build:prod",
+        "docker:run": "npx --yes zx scripts/docker-run.mjs",
+        "docker:build": "npx --yes zx scripts/docker-build.mjs",
+        "docker:stop": "npx --yes zx scripts/docker-stop.mjs",
+        "docker:restart": "npx --yes zx scripts/docker-restart.mjs"
     },
     "engines": {
         "node": ">=16",

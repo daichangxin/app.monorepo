@@ -1,4 +1,8 @@
 FROM node:20-alpine as base
+# fix: UNABLE_TO_GET_ISSUER_CERT_LOCALLY due to zscaler
+# COPY ./zscaler.crt /app/zscaler.crt
+# ENV NODE_EXTRA_CA_CERTS=/app/zscaler.crt
+
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV COREPACK_NPM_REGISTRY="https://registry.npmmirror.com"
@@ -25,6 +29,5 @@ COPY --from=build /app/server/dist /app/server/dist
 WORKDIR /app/server
 # set env file
 ENV ENV_FILE="./dist/.env.prod"
-EXPOSE 3000
 
 ENTRYPOINT ["node", "./dist/index.js"]

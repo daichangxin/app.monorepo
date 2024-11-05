@@ -38,7 +38,7 @@
         "html-webpack-plugin": "^5.6.0",
         "mini-css-extract-plugin": "^2.8.1",
         "postcss": "^8.4.38",
-        "postcss-loader": "^7.3.4",
+        "postcss-loader": "^8.0.0",
         "prettier-plugin-tailwindcss": "^0.5.13",
         "tailwindcss": "^3.4.3",
         "terser-webpack-plugin": "^5.3.10",

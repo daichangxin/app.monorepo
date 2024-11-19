@@ -1,3 +1,4 @@
+import { aw } from '@/services/appwrite';
 import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input, toast } from '@eds-open/eds-ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ID } from 'appwrite';
@@ -5,7 +6,6 @@ import type { FC } from 'react';
 import { useCallback, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { aw } from '../../../../services/appwrite';
 import { useAuth } from '../../services/useAuth';
 
 const schema = z.object({

@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = {
     extends: ['@eds-open/eslint-config-bundle/libs/react'],
     rules: {

@@ -17,4 +17,4 @@ function compressFilter(req: Request, res: Response): boolean {
     return compression.filter(req, res);
 }
 
-export default compressFilter;
+export { compressFilter };

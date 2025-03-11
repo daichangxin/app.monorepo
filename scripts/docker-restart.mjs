@@ -1,8 +1,8 @@
 #!/usr/bin/env zx
-import "zx/globals";
-import { getPackageJson } from "./env.mjs";
+import 'zx/globals';
+import { getPackageJson } from './env.mjs';
 
-console.log("docker:stop start...");
+console.log('docker:stop start...');
 
 // get package.json
 const packageJson = await getPackageJson();
@@ -20,11 +20,11 @@ try {
         await $`docker inspect -f '{{.State.Running}}' ${appName}`.then((res) =>
             res.stdout.trim(),
         );
-    if (runningState === "true") {
-        console.log("✅the container is running");
+    if (runningState === 'true') {
+        console.log('✅the container is running');
     } else {
-        console.log("❌the container is not running");
+        console.log('❌the container is not running');
     }
-} catch (err) {
-    console.error("❌the container is not running");
+} catch (_) {
+    console.error('❌the container is not running');
 }

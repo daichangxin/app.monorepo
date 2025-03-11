@@ -1,15 +1,14 @@
 const DotenvWebpackPlugin = require('dotenv-webpack');
-const { WebpackConfiguration } = require('webpack-dev-server');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { resolve } = require('./utils/resolve');
 const { generate } = require('./webpack.base');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const base = generate(false);
 const basePlugins = base.plugins;
 
 /**
  *
- * @type {WebpackConfiguration}
+ * @type {import('webpack-dev-server').WebpackConfiguration}
  */
 const config = {
     ...base,

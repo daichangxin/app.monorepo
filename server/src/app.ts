@@ -1,13 +1,14 @@
-import compression from "compression";
-import cors from "cors";
-import express, { Express, Request, Response } from "express";
-import fs from "fs";
-import helmet from "helmet";
-import path from "path";
-import { config } from "./config";
-import logger from "./middleware/logger";
-import { apiRoute } from "./routes";
-import compressFilter from "./utils/compressFilter.util";
+import fs from 'fs';
+import path from 'path';
+import compression from 'compression';
+import cors from 'cors';
+import type { Express, Request, Response } from 'express';
+import express from 'express';
+import helmet from 'helmet';
+import { config } from './config';
+import { logger } from './middleware/logger';
+import { apiRoute } from './routes';
+import { compressFilter } from './utils/compressFilter.util';
 
 const app: Express = express();
 
@@ -42,14 +43,14 @@ app.use((err, req, res, next) => {
     }
     next();
 });
-app.use("/api", apiRoute);
-app.use("/health", (req: Request, res: Response) => {
-    res.status(200).send("ok");
+app.use('/api', apiRoute);
+app.use('/health', (req: Request, res: Response) => {
+    res.status(200).send('ok');
 });
 
-const clientDir = path.join(__dirname, "../../client/dist");
+const clientDir = path.join(__dirname, '../../client/dist');
 if (fs.existsSync(clientDir)) {
-    app.use("/", express.static(clientDir));
+    app.use('/', express.static(clientDir));
 }
 
 export default app;

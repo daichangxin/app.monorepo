@@ -1,0 +1,7 @@
+**/*.js
+**/*.cjs
+**/*.mjs
+**/*.ts
+**/*.jsx
+**/*.tsx
+!eslint.config.*

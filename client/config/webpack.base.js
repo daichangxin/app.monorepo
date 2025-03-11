@@ -1,12 +1,12 @@
+const os = require('os');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getWebpackEntries } = require('./utils/getWebpackEntries');
-const { resolve } = require('./utils/resolve');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const { getWebpackEntries } = require('./utils/getWebpackEntries');
+const { resolve } = require('./utils/resolve');
 
-const os = require('os');
 const clientRoot = resolve('src');
-const path = require('path');
 
 /**
  * genrate webpack config
@@ -138,17 +138,17 @@ const generate = (isOptimization = false) => {
             minimize: isOptimization,
             minimizer: isOptimization
                 ? [
-                      new TerserPlugin({
-                          parallel: os.cpus().length,
-                          extractComments: false,
-                          terserOptions: {
-                              output: {
-                                  comments: false,
-                              },
-                              mangle: true,
-                          },
-                      }),
-                  ]
+                        new TerserPlugin({
+                            parallel: os.cpus().length,
+                            extractComments: false,
+                            terserOptions: {
+                                output: {
+                                    comments: false,
+                                },
+                                mangle: true,
+                            },
+                        }),
+                    ]
                 : undefined,
         },
     };

@@ -1,9 +1,9 @@
-import { aw } from '@/services/appwrite';
 import { Button } from '@eds-open/eds-ui';
 import type { FC } from 'react';
 import { useCallback } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { EmailForm } from '../EmailForm';
+import { aw } from '@/services/appwrite';
 
 export const Login: FC = () => {
     const onLoginByGoogleClick = useCallback(() => {

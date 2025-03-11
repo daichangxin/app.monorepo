@@ -1,37 +1,37 @@
-import winston, { createLogger, transports } from "winston";
-import "winston-daily-rotate-file";
-import { config } from "../config";
-const { combine, timestamp, json, simple } = winston.format;
+import winston, { createLogger, transports } from 'winston';
+import 'winston-daily-rotate-file';
+import { config } from '../config';
+const { combine, timestamp, json } = winston.format;
 
 const logger = createLogger({
-    level: config.node_env === "production" ? "info" : "debug",
+    level: config.node_env === 'production' ? 'info' : 'debug',
     format: combine(timestamp(), json()),
     transports: [
         new winston.transports.DailyRotateFile({
-            level: "info",
-            filename: "./logs/status-%DATE%.log",
-            datePattern: "YYYY-MM-DD",
+            level: 'info',
+            filename: './logs/status-%DATE%.log',
+            datePattern: 'YYYY-MM-DD',
             zippedArchive: true,
-            maxSize: "20m",
-            maxFiles: "14d",
+            maxSize: '20m',
+            maxFiles: '14d',
         }),
         new winston.transports.DailyRotateFile({
-            level: "error",
-            filename: "./logs/error-%DATE%.log",
-            datePattern: "YYYY-MM-DD",
+            level: 'error',
+            filename: './logs/error-%DATE%.log',
+            datePattern: 'YYYY-MM-DD',
             zippedArchive: true,
-            maxSize: "20m",
-            maxFiles: "14d",
+            maxSize: '20m',
+            maxFiles: '14d',
         }),
     ],
     exceptionHandlers: [
         new winston.transports.DailyRotateFile({
-            level: "error",
-            filename: "./logs/exceptions-%DATE%.log",
-            datePattern: "YYYY-MM-DD",
+            level: 'error',
+            filename: './logs/exceptions-%DATE%.log',
+            datePattern: 'YYYY-MM-DD',
             zippedArchive: true,
-            maxSize: "20m",
-            maxFiles: "14d",
+            maxSize: '20m',
+            maxFiles: '14d',
         }),
     ],
 });
@@ -42,4 +42,4 @@ logger.add(
     }),
 );
 
-export default logger;
+export { logger };

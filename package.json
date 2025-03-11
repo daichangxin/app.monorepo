@@ -23,8 +23,10 @@
         "axios": "^1.6.8"
     },
     "devDependencies": {
-        "@eds-open/eslint-config-bundle": "^1.2.0",
+        "@eds-open/eslint-config-bundle": "^2.2.1",
+        "eslint": "^9.22.0",
         "rimraf": "^5.0.5",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.3",
+        "zx": "^8.1.8"
     }
 }

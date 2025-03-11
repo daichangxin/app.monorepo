@@ -4,9 +4,9 @@ const getPackageJson = async () => {
 
 const getDockerEnvMap = async () => {
     const env = await $`cat .docker.env`.then((res) => res.stdout);
-    const envs = env.split("\n").filter((line) => line.trim() !== "");
+    const envs = env.split('\n').filter((line) => line.trim() !== '');
     return envs.reduce((acc, line) => {
-        const [key, value] = line.split("=");
+        const [key, value] = line.split('=');
         acc[key] = value;
         return acc;
     }, {});

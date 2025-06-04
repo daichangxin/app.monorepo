@@ -51,6 +51,10 @@ app.use('/health', (req: Request, res: Response) => {
 const clientDir = path.join(__dirname, '../../client/dist');
 if (fs.existsSync(clientDir)) {
     app.use('/', express.static(clientDir));
+    // add fallback for SPA
+    app.get('*', (req: Request, res: Response) => {
+        res.sendFile(path.join(clientDir, 'index.html'));
+    });
 }
 
 export default app;

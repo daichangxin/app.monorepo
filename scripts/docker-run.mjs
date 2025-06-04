@@ -14,7 +14,8 @@ const { SERVER_PORT, EXPOSED_PORT } = envMap;
 
 if (!appName || !SERVER_PORT || !EXPOSED_PORT) {
     console.error(`appName, SERVER_PORT, EXPOSED_PORT are required`);
-} else {
+}
+else {
     const port = `${EXPOSED_PORT}:${SERVER_PORT}`;
     const app = appName;
     console.log('app:', chalk.blue(appName));
@@ -24,7 +25,8 @@ if (!appName || !SERVER_PORT || !EXPOSED_PORT) {
         .then((res) => {
             if (res.stderr) {
                 console.error('❌', res.stderr);
-            } else {
+            }
+            else {
                 console.log(`✅Container ${app} is running on port ${port}`);
             }
         })

@@ -7,10 +7,10 @@
     "scripts": {
         "clean": "rimraf dist/",
         "test": "tsc --noEmit",
-        "dev": "NODE_ENV=development webpack serve --config config/webpack.dev.js",
+        "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
         "analyzer": "webpack --config config/webpack.analyzer.js --progress",
-        "build:test": "npm run clean && NODE_ENV=production webpack --config config/webpack.test.js",
-        "build:prod": "npm run clean && NODE_ENV=production webpack --config config/webpack.prod.js",
+        "build:test": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.test.js",
+        "build:prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
         "lint": "eslint src/"
     },
     "dependencies": {
@@ -38,6 +38,7 @@
         "@types/react-dom": "^18.2.23",
         "autoprefixer": "^10.4.19",
         "babel-loader": "^10.0.0",
+        "cross-env": "^7.0.3",
         "css-loader": "^6.10.0",
         "dotenv-webpack": "^8.1.0",
         "html-webpack-plugin": "^5.6.0",

@@ -46,7 +46,8 @@ export const EmailForm: FC = () => {
                             description: err.message || `Something went wrong.`,
                         });
                     });
-            } else {
+            }
+            else {
                 aw.account
                     .createEmailSession(email, password)
                     .then(fetchUser)
@@ -58,7 +59,7 @@ export const EmailForm: FC = () => {
                     });
             }
         },
-        [fetchUser]
+        [fetchUser],
     );
 
     return (

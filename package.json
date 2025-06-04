@@ -10,7 +10,8 @@
         "docker:run": "npx --yes zx scripts/docker-run.mjs",
         "docker:build": "npx --yes zx scripts/docker-build.mjs",
         "docker:stop": "npx --yes zx scripts/docker-stop.mjs",
-        "docker:restart": "npx --yes zx scripts/docker-restart.mjs"
+        "docker:restart": "npx --yes zx scripts/docker-restart.mjs",
+        "lint": "pnpm -r lint"
     },
     "engines": {
         "node": ">=16",

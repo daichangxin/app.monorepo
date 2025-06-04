@@ -18,11 +18,13 @@ export const Main: FC = () => {
 
     return (
         <div className="flex min-h-screen items-center justify-center">
-            {loading ? (
-                <AiOutlineLoading className="animate-spin" />
-            ) : (
-                <div className="w-96">{user ? <UserView user={user} logout={signOut} /> : <Login />}</div>
-            )}
+            {loading
+                ? (
+                        <AiOutlineLoading className="animate-spin" />
+                    )
+                : (
+                        <div className="w-96">{user ? <UserView user={user} logout={signOut} /> : <Login />}</div>
+                    )}
         </div>
     );
 };

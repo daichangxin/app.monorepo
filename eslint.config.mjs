@@ -18,13 +18,7 @@ const config = [
         rules: {
             'max-lines-per-function': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
             '@typescript-eslint/no-use-before-define': 'off',
-            '@stylistic/jsx-one-expression-per-line': 'off',
-            '@stylistic/comma-dangle': 'off',
-            '@stylistic/operator-linebreak': 'off',
             '@stylistic/arrow-parens': 'off',
-            '@stylistic/multiline-ternary': 'off',
-            '@stylistic/jsx-wrap-multilines': 'off',
-            '@stylistic/brace-style': 'off',
         },
     },
     {
@@ -43,6 +37,13 @@ const config = [
             'import/extensions': 'off',
         },
     },
+    {
+        settings: {
+            tailwindcss: {
+                config: './client/tailwind.config.js',
+            }
+        }
+    }
 ];
 
 export default config;

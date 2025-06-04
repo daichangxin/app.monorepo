@@ -13,19 +13,19 @@ export const AppRoutes: FC = () => {
             <Routes>
                 <Route
                     path="/"
-                    element={
+                    element={(
                         <Suspense fallback={<div />}>
                             <Main />
                         </Suspense>
-                    }
+                    )}
                 />
                 <Route
                     path="/basic-auth"
-                    element={
+                    element={(
                         <Suspense fallback={<div />}>
                             <BasicAuthMain />
                         </Suspense>
-                    }
+                    )}
                 />
             </Routes>
         </BrowserRouter>

@@ -22,9 +22,11 @@ try {
         );
     if (runningState === 'true') {
         console.log('✅the container is running');
-    } else {
+    }
+    else {
         console.log('❌the container is not running');
     }
-} catch (_) {
+}
+catch (_) {
     console.error('❌the container is not running');
 }

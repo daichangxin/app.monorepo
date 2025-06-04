@@ -13,7 +13,8 @@ $1`docker build -t ${appName} .`
     .then((res) => {
         if (res.stderr) {
             console.error('❌', res.stderr);
-        } else {
+        }
+        else {
             console.log(`✅Image ${appName} is built`);
         }
     })

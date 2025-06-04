@@ -20,6 +20,7 @@ try {
     }
     await $`docker rm ${appName}`;
     console.log(`✅Container ${appName} is removed`);
-} catch (_) {
+}
+catch (_) {
     console.error('app is not running');
 }

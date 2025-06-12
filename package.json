@@ -14,8 +14,8 @@
         "lint": "pnpm -r lint"
     },
     "engines": {
-        "node": ">=16",
-        "pnpm": ">=8"
+        "node": ">=20",
+        "pnpm": ">=10"
     },
     "keywords": [],
     "author": "daichangxin",
@@ -29,5 +29,8 @@
         "rimraf": "^5.0.5",
         "typescript": "^5.4.3",
         "zx": "^8.1.8"
+    },
+    "resolutions": {
+        "eslint-plugin-tailwindcss": "npm:@hyoban/eslint-plugin-tailwindcss@4.0.0-alpha.12"
     }
 }

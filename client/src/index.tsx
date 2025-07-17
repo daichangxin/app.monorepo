@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { AppRoutes } from './pages/index';
+import { AppRoutes } from './pages/routes';
 
 import './assets/css/tailwind.css';
 import '@eds-open/eds-ui/dist/styles.css';

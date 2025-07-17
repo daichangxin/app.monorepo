@@ -1,10 +1,8 @@
 import { Toaster } from '@eds-open/eds-ui';
 import type { FC } from 'react';
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Main } from './home';
-
-const BasicAuthMain = lazy(() => import('./basic-auth').then((module) => ({ default: module.Main })));
+import { Main } from '../home';
 
 export const AppRoutes: FC = () => {
     return (
@@ -16,14 +14,6 @@ export const AppRoutes: FC = () => {
                     element={(
                         <Suspense fallback={<div />}>
                             <Main />
-                        </Suspense>
-                    )}
-                />
-                <Route
-                    path="/basic-auth"
-                    element={(
-                        <Suspense fallback={<div />}>
-                            <BasicAuthMain />
                         </Suspense>
                     )}
                 />

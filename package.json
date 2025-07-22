@@ -27,6 +27,7 @@
         "@eds-open/eslint-config-bundle": "^2.2.1",
         "eslint": "^9.22.0",
         "rimraf": "^5.0.5",
+        "tailwindcss": "^4.1.9",
         "typescript": "^5.4.3",
         "zx": "^8.1.8"
     },

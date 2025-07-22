@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client';
+import { config } from './config';
 import { AppRoutes } from './pages/routes';
 
-import './assets/css/tailwind.css';
 import '@eds-open/eds-ui/dist/styles.css';
-import { config } from './config';
+import './assets/css/tailwind.css';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(<AppRoutes />);

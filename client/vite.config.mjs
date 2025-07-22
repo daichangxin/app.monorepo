@@ -1,8 +1,7 @@
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import EnvironmentPlugin from 'vite-plugin-environment';
-
 import { defineConfig } from 'vite';
+import EnvironmentPlugin from 'vite-plugin-environment';
 
 const vendors = [
     'react',
@@ -10,6 +9,7 @@ const vendors = [
     'react-router-dom',
 ];
 
+// eslint-disable-next-line import/no-unused-modules, import/no-default-export
 export default defineConfig({
     plugins: [
         react(),

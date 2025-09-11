@@ -1,5 +1,5 @@
 packages:
-    - "packages/*"
-    - "client"
-    - "server"
-    - "scripts"
+  - packages/*
+  - client
+  - server
+  - scripts

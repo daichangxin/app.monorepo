@@ -1,10 +1,11 @@
+import type { ReactElement } from 'react';
 import { AiFillProduct } from 'react-icons/ai';
 import { FaHome, FaList } from 'react-icons/fa';
 
 export type AppMenu = {
     key: string;
     label: string;
-    icon: () => JSX.Element;
+    icon: () => ReactElement;
     link: string;
     children?: AppMenu[];
 };

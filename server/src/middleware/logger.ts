@@ -1,6 +1,9 @@
-import winston, { createLogger, transports } from 'winston';
 import 'winston-daily-rotate-file';
+
+import winston, { createLogger, transports } from 'winston';
+
 import { config } from '../config';
+
 const { combine, timestamp, json } = winston.format;
 
 const logger = createLogger({

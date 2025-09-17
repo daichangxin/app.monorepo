@@ -1,7 +1,9 @@
 import type { FC, PropsWithChildren } from 'react';
-import { AppAsider } from '../AppAsider';
+
 import { menus } from '@/services/app/appMenus';
 import { cn } from '@/utils/cn';
+
+import { AppAsider } from '../AppAsider';
 
 type Props = {
     className?: string;

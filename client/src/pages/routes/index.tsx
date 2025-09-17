@@ -2,8 +2,10 @@ import { Toaster } from '@eds-open/eds-ui';
 import type { FC } from 'react';
 import { Suspense } from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
-import { Main } from '../home';
+
 import { AppLayout } from '@/components/AppLayout';
+
+import { Main } from '../home';
 
 export const AppRoutes: FC = () => {
     return (

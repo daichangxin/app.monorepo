@@ -9,7 +9,6 @@ const vendors = [
     'react-router-dom',
 ];
 
-// eslint-disable-next-line import/no-unused-modules, import/no-default-export
 export default defineConfig({
     plugins: [
         react(),

@@ -29,6 +29,7 @@
         "zustand": "^4.5.7"
     },
     "devDependencies": {
+        "@eds-open/eslint-config-bundle": "^2.3.0",
         "@tailwindcss/vite": "^4.1.12",
         "@types/node": "^20.19.11",
         "@types/react": "^19.1.12",

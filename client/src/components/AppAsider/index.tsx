@@ -2,6 +2,7 @@ import { ScrollArea } from '@eds-open/eds-ui';
 import type { FC } from 'react';
 import { LuPawPrint } from 'react-icons/lu';
 import { Link, useMatch } from 'react-router-dom';
+
 import type { AppMenu } from '@/services/app/appMenus';
 import { cn } from '@/utils/cn';
 

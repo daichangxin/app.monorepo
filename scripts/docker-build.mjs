@@ -1,5 +1,6 @@
 #!/usr/bin/env zx
 import 'zx/globals';
+
 import { getPackageJson } from './env.mjs';
 
 console.log('docker:build start...');

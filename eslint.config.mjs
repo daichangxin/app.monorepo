@@ -1,5 +1,6 @@
 import { config as base } from '@eds-open/eslint-config-bundle/libs/index.js';
-import { resolve } from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import * as zx from 'zx';
 
 const zxGlobals = Object.keys(zx).reduce((acc, key) => {
@@ -24,12 +25,6 @@ const config = [
         },
     },
     {
-        files: ['server/src/app.ts'],
-        rules: {
-            'import/no-default-export': 'off',
-        },
-    },
-    {
         files: ['scripts/**/*.mjs'],
         languageOptions: {
             globals: { ...zxGlobals },
@@ -40,12 +35,14 @@ const config = [
         },
     },
     {
+        files: ['client/**/*'], 
         settings: {
             tailwindcss: {
-                config: resolve(process.cwd(), 'client/src/assets/css/tailwind.css'),
+                config: dirname(fileURLToPath(import.meta.url)) + '/client/src/assets/css/tailwind.css',
             },
         },
     },
 ];
 
+// console.log(resolve(process.cwd(), 'client/src/assets/css/tailwind.css'))
 export default config;

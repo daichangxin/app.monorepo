@@ -1,6 +1,6 @@
-import fs from 'fs';
 import type { Request, Response } from 'express';
 import formidable from 'formidable';
+import fs from 'fs';
 
 export const handleFileUpload = (req: Request, res: Response) => {
     const form = formidable({

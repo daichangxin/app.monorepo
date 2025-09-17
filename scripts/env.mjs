@@ -12,4 +12,4 @@ const getDockerEnvMap = async () => {
     }, {});
 };
 
-export { getPackageJson, getDockerEnvMap };
+export { getDockerEnvMap, getPackageJson };

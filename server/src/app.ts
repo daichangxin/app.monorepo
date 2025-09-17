@@ -1,10 +1,11 @@
-import fs from 'fs';
-import path from 'path';
 import compression from 'compression';
 import cors from 'cors';
 import type { Express, Request, Response } from 'express';
 import express from 'express';
+import fs from 'fs';
 import helmet from 'helmet';
+import path from 'path';
+
 import { config } from './config';
 import { logger } from './middleware/logger';
 import { apiRoute } from './routes';

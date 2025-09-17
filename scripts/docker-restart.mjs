@@ -1,5 +1,6 @@
 #!/usr/bin/env zx
 import 'zx/globals';
+
 import { getPackageJson } from './env.mjs';
 
 console.log('docker:stop start...');
@@ -16,8 +17,8 @@ await $`docker image prune -f`;
 
 // check if container is running
 try {
-    const runningState =
-        await $`docker inspect -f '{{.State.Running}}' ${appName}`.then((res) =>
+    const runningState
+        = await $`docker inspect -f '{{.State.Running}}' ${appName}`.then((res) =>
             res.stdout.trim(),
         );
     if (runningState === 'true') {

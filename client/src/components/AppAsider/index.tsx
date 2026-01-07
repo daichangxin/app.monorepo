@@ -22,7 +22,7 @@ const MenuItem: FC<{ data: AppMenu }> = ({ data }) => {
                 <span className="hidden text-sm group-hover:!inline-block">{data.label}</span>
             </Link>
             <div className="hidden group-hover:!block">
-                {data.children && data.children.length > 0 && data.children.map((menu) => {
+                {data.children && data.children.length > 0 && data.children.map(menu => {
                     return <MenuItem key={menu.key} data={menu} />;
                 })}
             </div>
@@ -40,7 +40,7 @@ export const AppAsider: FC<{ menus: AppMenu[] }> = ({ menus }) => {
                     <span className="hidden font-semibold whitespace-nowrap group-hover:!inline-block">PawGame</span>
                 </div>
                 <ScrollArea className="flex-1">
-                    {menus.map(menu => (
+                    {menus.map((menu) => (
                         <MenuItem key={menu.key} data={menu} />
                     ))}
                 </ScrollArea>

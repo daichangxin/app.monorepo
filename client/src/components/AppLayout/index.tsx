@@ -11,7 +11,7 @@ type Props = {
 
 export const AppLayout: FC<PropsWithChildren<Props>> = ({ children, className }) => {
     return (
-        <div className={cn('min-h-screen flex', className)}>
+        <div className={cn('flex min-h-screen', className)}>
             <AppAsider menus={menus} />
             <main className="flex flex-1 flex-col">
                 <header className="bg-gray-800 p-4 text-white">

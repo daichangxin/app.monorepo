@@ -1,7 +1,6 @@
-import { config as base } from '@eds-open/eslint-config-bundle/libs/index.js';
-import { dirname } from 'path';
+import { config as base } from '@eds-open/eslint-config-bundle';
+import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
-
 
 /**
  * @type {import('eslint').Linter.Config[]}
@@ -9,19 +8,12 @@ import { fileURLToPath } from 'url';
 const config = [
     ...base,
     {
-        ignores: ['**/*.d.ts', '**/dist/**/*', 'eslint.config.mjs'],
-    },
-    {
-        rules: {
-            'max-lines-per-function': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
-            '@typescript-eslint/no-use-before-define': 'off',
-            '@stylistic/arrow-parens': 'off',
-        },
+        ignores: ['**/*.d.ts', '**/dist/**/*'],
     },
     {
         settings: {
             tailwindcss: {
-                config: dirname(fileURLToPath(import.meta.url)) + '/src/assets/css/tailwind.css',
+                config: resolve(dirname(fileURLToPath(import.meta.url)), 'src/assets/css/tailwind.css'),
             },
         },
     },

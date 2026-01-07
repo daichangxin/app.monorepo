@@ -1,4 +1,7 @@
-import { jsConfig, typescriptConfig, importsConfig, unusedConfig } from '@eds-open/eslint-config-bundle/libs/index.js'
+import { config as importsConfig } from '@eds-open/eslint-config-bundle/imports';
+import { config as jsConfig } from '@eds-open/eslint-config-bundle/js';
+import { config as typescriptConfig } from '@eds-open/eslint-config-bundle/typescript';
+import { config as unusedConfig } from '@eds-open/eslint-config-bundle/unused';
 
 /**
  * @type {import('eslint').Linter.Config[]}
@@ -9,13 +12,8 @@ const config = [
     ...importsConfig,
     ...unusedConfig,
     {
-        ignores: ['**/*.d.ts', 'eslint.config.mjs'],
+        ignores: ['**/*.d.ts'],
     },
-    {
-        rules: {
-            'max-lines-per-function': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
-        },
-    }
 ];
 
 export default config;

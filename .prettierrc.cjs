@@ -1,4 +1,4 @@
-const base = require('@eds-open/eslint-config-bundle/prettier');
+const base = require('@eds-open/eslint-config-bundle/libs/prettier.cjs');
 
 module.exports = {
     ...base,

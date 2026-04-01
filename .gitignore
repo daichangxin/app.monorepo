@@ -1,4 +1,10 @@
 node_modules
 dist
 logs
-*.crt
+.pnpm-store
+.env
+docker/certs/*
+!docker/certs/.gitkeep
+.superpowers
+.cursor
+**/.deploy

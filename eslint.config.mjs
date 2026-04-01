@@ -1,13 +1,6 @@
 import { config as base } from '@eds-open/eslint-config-bundle/libs/index.js';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import * as zx from 'zx';
-
-const zxGlobals = Object.keys(zx).reduce((acc, key) => {
-    acc[key] = 'readonly';
-    return acc;
-}, {});
-
 
 /**
  * @type {import('eslint').Linter.Config[]}
@@ -25,17 +18,7 @@ const config = [
         },
     },
     {
-        files: ['scripts/**/*.mjs'],
-        languageOptions: {
-            globals: { ...zxGlobals },
-        },
-        rules: {
-            'import/no-unresolved': 'off',
-            'import/extensions': 'off',
-        },
-    },
-    {
-        files: ['client/**/*'], 
+        files: ['client/**/*'],
         settings: {
             tailwindcss: {
                 config: dirname(fileURLToPath(import.meta.url)) + '/client/src/assets/css/tailwind.css',
@@ -44,5 +27,4 @@ const config = [
     },
 ];
 
-// console.log(resolve(process.cwd(), 'client/src/assets/css/tailwind.css'))
 export default config;

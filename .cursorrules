@@ -1,0 +1,190 @@
+# Cursor Rules for app.monorepo
+
+You are an expert full-stack engineer working on a production monorepo with the following strict rules.
+
+## Project Structure
+
+This is a pnpm monorepo with the following structure:
+
+- `client/` - React frontend application
+- `server/` - Express backend API
+- `packages/` - Shared utilities and libraries
+- `scripts/` - Build and deployment scripts
+
+## Tech Stack
+
+### Frontend (client/)
+
+- React 19+ with TypeScript (strict mode, no any)
+- Vite as build tool
+- Tailwind CSS v4+
+- shadcn/ui (latest) – always use existing components when possible
+- ESLint + Prettier (@eds-open/eslint-config-bundle)
+- State management: zustand
+- Forms: react-hook-form + zod
+- Routing: react-router-dom v6
+- Hooks: ahooks for common patterns
+- Jest + Testing Library for unit tests, Playwright for E2E
+
+### Backend (server/)
+
+- Express + TypeScript
+- Node.js >=20
+- Winston for logging
+- Helmet for security
+- CORS and compression middleware
+
+### Package Manager
+
+- pnpm (>=10) - NEVER use npm or yarn
+- Workspace protocol for internal dependencies
+
+## Frontend Code Style Rules (MUST FOLLOW)
+
+### Component Structure
+
+- Function components + hooks only (no class components ever)
+- Always destructure props in the function parameters
+- Use descriptive prop names (never abbreviations like txt, onClk, etc.)
+- One component per file. Never multiple named exports unless they are tiny (< 30 lines each) and tightly coupled (max 3 per file)
+- Keep components small and focused (React Server Components mindset)
+- File names: PascalCase.tsx for components
+
+### Styling
+
+- Use cn() from "@/utils/cn" for all className merging
+- Tailwind CSS v4 utility classes only
+- No inline styles or CSS modules
+- Import shadcn components from "@/components/ui/..." when available
+
+### TypeScript
+
+- Strict mode enabled (no any, unknown preferred)
+- Explicit return types for exported functions
+- Use type for props, interface for objects that may be extended
+- Proper typing for event handlers and refs
+
+### Imports
+
+- Use @/ alias for src directory imports
+- Group imports: external packages → internal modules → components → utils → types
+- Named exports preferred over default exports (except for pages/routes)
+
+### State Management & Prop Drilling Rules
+
+- Use zustand for global state
+- Keep state close to where it's used
+- Use ahooks for common patterns (useRequest, useMount, etc.)
+- Never prop drill more than one level (parent → child only)
+- For deeper state sharing, use React Context at the common ancestor
+- For global app state, use Zustand Store
+
+### Forms
+
+- Use react-hook-form for all forms
+- Validate with zod schemas
+- Use @hookform/resolvers for integration
+
+## Backend Code Style Rules
+
+### Structure
+
+- Module-based organization in server/src/modules/
+- Each module contains: controller, service, types
+- Routes defined in server/src/routes.ts
+- Middleware in server/src/middleware/
+
+### Error Handling
+
+- Use try-catch blocks in async functions
+- Return proper HTTP status codes
+- Log errors with Winston logger
+- Never expose internal errors to client
+
+### API Design
+
+- RESTful conventions
+- Consistent response format
+- Proper HTTP methods (GET, POST, PUT, DELETE)
+- Version APIs if needed (/api/v1/...)
+
+## Code Quality Standards
+
+### General Rules
+
+- Modern ES6+ syntax (async/await, destructuring, spread, etc.)
+- Descriptive variable and function names (no abbreviations)
+- Single responsibility principle
+- DRY (Don't Repeat Yourself)
+- Comments only for complex logic, not obvious code
+- Return typed responses
+
+### TypeScript Rules
+
+- No any type (use unknown if needed)
+- No type assertions unless absolutely necessary
+- Prefer const over let, never use var
+- Use optional chaining (?.) and nullish coalescing (??)
+
+### Testing
+
+- Write tests when explicitly requested
+- Use descriptive test names
+- Test behavior, not implementation
+- Place tests in `__tests__/` directories adjacent to source
+- Use `describe` for grouping, `it` for individual tests
+- Clear mocks in `afterEach`
+- Keep each test to 2–3 assertions max
+- Prefer validating objects via `toContainEqual`/`objectContaining` over asserting individual properties
+- Test behavior, not implementation: Test what users see and do, not internal component details
+- Avoid testing: Internal state, private methods, implementation details that could change
+- Prefer testing: User interactions, rendered output, callbacks being invoked
+- Skip dedicated tests for: Thin wrapper components, simple presentational components, components already covered by integration tests
+
+## Development Workflow
+
+### When Implementing
+
+- Always return complete file(s) with correct imports
+- No snippets or partial code unless explicitly asked
+- Fix linter errors immediately after changes
+- Test changes if possible
+
+### File Operations
+
+- NEVER create documentation files (*.md, README) unless explicitly requested
+- NEVER create config files unless explicitly requested
+- Prefer editing existing files over creating new ones
+- Clean up temporary files after use
+
+### Git Operations
+
+- NEVER commit unless explicitly requested
+- NEVER modify git config
+- NEVER force push or destructive operations
+
+## Browser Support
+
+- Modern evergreen browsers only (Chrome, Firefox, Safari, Edge)
+- No IE or legacy browser support needed
+- Use modern JavaScript/CSS features freely
+
+## Performance
+
+- Code splitting for routes
+- Lazy load components when appropriate
+- Optimize images and assets
+- Minimize bundle size
+
+## Security
+
+- Sanitize user inputs
+- Use Helmet middleware on backend
+- Proper CORS configuration
+- Environment variables for secrets (never hardcode)
+
+## Important Notes
+
+- When implementing, focus on code quality and maintainability
+- Follow existing patterns in the codebase
+- Ask for clarification if requirements are unclear

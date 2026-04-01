@@ -1,0 +1,33 @@
+name: monorepo
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: server
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=${SERVER_PORT:-3000}
+      - ENV_FILE=./dist/.env.prod
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - app_logs:/app/logs
+    depends_on: []
+
+  nginx:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: nginx
+    restart: unless-stopped
+    ports:
+      - "${EXPOSED_PORT:-3008}:80"
+    depends_on:
+      app:
+        condition: service_started
+
+volumes:
+  app_logs:

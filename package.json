@@ -7,10 +7,11 @@
         "dev": "pnpm -r --parallel dev",
         "build:test": "pnpm --stream -r run build:test",
         "build:prod": "pnpm --stream -r run build:prod",
-        "docker:run": "npx --yes zx scripts/docker-run.mjs",
-        "docker:build": "npx --yes zx scripts/docker-build.mjs",
-        "docker:stop": "npx --yes zx scripts/docker-stop.mjs",
-        "docker:restart": "npx --yes zx scripts/docker-restart.mjs",
+        "app:up": "docker compose -f docker/docker-compose.yml up -d --build",
+        "app:down": "docker compose -f docker/docker-compose.yml down",
+        "app:restart": "pnpm app:down && pnpm app:up && docker image prune -f",
+        "deploy:server": "rimraf server/.deploy && pnpm deploy --filter=server --prod server/.deploy",
+        "app:deploy": "pnpm build:prod && pnpm deploy:server && pnpm app:restart",
         "lint": "pnpm -r lint"
     },
     "engines": {
@@ -20,13 +21,10 @@
     "keywords": [],
     "author": "daichangxin",
     "license": "MIT",
-    "dependencies": {
-        "axios": "^1.11.0"
-    },
     "devDependencies": {
         "eslint": "^9.34.0",
+        "rimraf": "^5.0.10",
         "tailwindcss": "^4.1.12",
-        "typescript": "^5.9.2",
-        "zx": "^8.8.1"
+        "typescript": "^5.9.2"
     }
 }

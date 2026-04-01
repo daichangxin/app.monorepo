@@ -1,4 +1,3 @@
-import '@eds-open/eds-ui/dist/styles.css';
 import './assets/css/tailwind.css';
 
 import { createRoot } from 'react-dom/client';

@@ -8,5 +8,5 @@ React SPA Framework
 
 Express
 
--   serve client
--   provider api
+- serve client
+- provide api

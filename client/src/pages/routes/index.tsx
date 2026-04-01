@@ -1,4 +1,3 @@
-import { Toaster } from '@eds-open/eds-ui';
 import type { FC } from 'react';
 import { Suspense } from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
@@ -12,7 +11,6 @@ export const AppRoutes: FC = () => {
     return (
         <AppErrorBoundary>
             <BrowserRouter>
-                <Toaster />
                 <Routes>
                     <Route
                         path="/"

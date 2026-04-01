@@ -1,4 +1,3 @@
-import { ScrollArea } from '@eds-open/eds-ui';
 import type { FC } from 'react';
 import { LuPawPrint } from 'react-icons/lu';
 import { Link, useMatch } from 'react-router-dom';
@@ -39,11 +38,11 @@ export const AppAsider: FC<{ menus: AppMenu[] }> = ({ menus }) => {
                     <LuPawPrint className="size-8" />
                     <span className="hidden font-semibold whitespace-nowrap group-hover:!inline-block">PawGame</span>
                 </div>
-                <ScrollArea className="flex-1">
+                <div className="flex-1">
                     {menus.map((menu) => (
                         <MenuItem key={menu.key} data={menu} />
                     ))}
-                </ScrollArea>
+                </div>
             </div>
         </div>
     );

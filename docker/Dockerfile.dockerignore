@@ -1,7 +1,8 @@
 .vscode
 node_modules
+**/.cache
 .git
 .gitignore
 *.md
-dist
-scripts
+docker/scripts
+.pnpm-store

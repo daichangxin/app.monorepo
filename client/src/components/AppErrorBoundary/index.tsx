@@ -6,7 +6,7 @@ import { HiOutlineExclamationTriangle } from 'react-icons/hi2';
 import { cn } from '../../utils/cn';
 
 const ErrorFallback = ({ error }: FallbackProps) => {
-    const isDevelopment = process.env.NODE_ENV === 'development';
+    const isDevelopment = import.meta.env.DEV;
 
     return (
         <div

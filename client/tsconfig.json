@@ -9,6 +9,7 @@
         "esModuleInterop": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
+        "types": ["vite/client"],
         "skipLibCheck": true,
         "strict": true,
         "removeComments": true,

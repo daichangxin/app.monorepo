@@ -1,4 +1,4 @@
 export const config = {
-    ENV: process.env.ENV,
+    ENV: import.meta.env.VITE_ENV,
     isDev: window.location.port.length > 2,
 };
